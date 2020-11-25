@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>班会抽号</title>
+
+<body>
+	<center style="font-size:150px"><em>抽号器</em></center>
+	<!--<pre class="l" id="demo">123</pre>-->
+	<center id="demo" style="font-size:350px">123</center>
+	<p style="text-align: center; font-size:100px">
+		<button onclick="ran()" autofocus>开始</button>
+	</p>	
+
+	<script>
+			function ran(){
+				for (var i=0;i<10000;i++){ 
+					<!-->setTimeout(function() {document.getElementById("demo").innerHTML=Math.floor(Math.random() * 46);},1000); 
+					
+					setTimeout(play,100); 
+					<!-->var timer1=window.setTimeout(function() {document.getElementById("demo").innerHTML=Math.floor(Math.random() * 46);},1000);
+					<!-->var timer=window.setInterval(ran,100);
+					<!-->await sleep(100);
+				}
+			}
+			
+			function play(){
+				var s=Math.floor(Math.random() * 46)
+				document.getElementById("demo").innerHTML=s;
+			}
+				
+	</script>
+</body>
+</html>
