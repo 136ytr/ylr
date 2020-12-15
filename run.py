@@ -1,18 +1,17 @@
 from flask import Flask,render_template
 app = Flask(__name__)
 
-'''
 @app.route('/')
 def index():
     return 'Hello World!!'
 
-
+'''
 @app.route('/')
 def ran():
     return render_template("ran.html")
 '''
 
-@app.route('/')
+@app.route('/E-brochure')
 def pdf():
     return render_template("pdf.html")
 
