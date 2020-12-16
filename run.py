@@ -15,5 +15,9 @@ def ran():
 def pdf():
     return render_template("pdf.html")
 
+@app.route('/stu1')
+def stu1():
+    return render_template("stu1.html")
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
