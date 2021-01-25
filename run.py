@@ -118,7 +118,7 @@ def klz():
             print (vcode)
         return vcode
     
-    browser = webdriver.PhantomJS('D:/python/phantomjs-1.9.8-windows/phantomjs.exe')
+    browser = webdriver.PhantomJS()
     browser.get('https://www.lezhuan.com/login.html')
     browser.set_window_size(1680,959)
     time.sleep(2)
