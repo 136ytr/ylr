@@ -21,12 +21,13 @@ def stu1():
 
 @app.route('/klz')
 def klz():
+    import re
     import time
     import requests
     import base64
     from PIL import Image
     from selenium import webdriver
-    import re
+    from selenium.common.exceptions import NoSuchElementException
     
     def processing_vcode():
         img = Image.open(path1)
@@ -144,16 +145,34 @@ def klz():
     
     lebi0=browser.find_element_by_xpath("//*[@class='lebi-number']").text
     lebi0=re.sub(r'\D','',lebi0)
-    #browser.find_element_by_xpath("//*[@id='snindex']").click()
+    browser.find_element_by_xpath("//*[@id='snindex']").click()
+    time.sleep(0.8)
+    signinTimes=browser.find_element_by_xpath("//*[@id='signinTimes']").text
+    lebi=browser.find_element_by_xpath("//*[@id='addAll']").text
+    browser.refresh()
+    time.sleep(1.5)
     lebi1=browser.find_element_by_xpath("//*[@class='lebi-number']").text
     lebi1=re.sub(r'\D','',lebi1)
     
+    browser.get('https://www.lezhuan.com/lzbao/details.php')
+    time.sleep(1.5)
+    lzbao=browser.find_element_by_xpath("//div[@class='shouyi_box user_wealth']").text
+    lzbao=re.findall(r'昨日收益\n[\d]+',lzbao)[0]
+    lzbao=re.sub(r'\D','',lzbao)
+    
+    end_time=time.time()
+    
     with open('lebidata.txt','a+') as f:
         f.write(time.strftime("\n%Y-%m-%d %H:%M:%S\t",time.localtime(time.time())))
-        f.write('签到前乐币：'+lebi0)
-        f.write('\t签到后乐币：'+lebi1)
-        f.write('\t签到乐币：'+str(int(re.sub(r'\D','',lebi1))-int(re.sub(r'\D','',lebi0))))
-    
+        #f.write('签到前乐币：'+lebi0)
+        f.write('签到后乐币：'+lebi1)
+        f.write('\t乐赚宝昨日收益：'+lzbao)
+        #f.write('\t签到乐币：'+str(int(re.sub(r'\D','',lebi1))-int(re.sub(r'\D','',lebi0))))
+        f.write('\t签到乐币：'+str(lebi))
+        f.write('\t连签天数：'+str(signinTimes))
+        f.write('\t尝试次数：'+str(times))
+        f.write('\t用时：'+str(int(end_time-start_time))+'s')
+
     browser.quit()
     return render_template("klz.html")
 
