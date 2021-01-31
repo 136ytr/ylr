@@ -167,7 +167,6 @@ def klz():
         #f.write('签到前乐币：'+lebi0)
         f.write('签到后乐币：'+lebi1)
         f.write('\t乐赚宝昨日收益：'+lzbao)
-        #f.write('\t签到乐币：'+str(int(re.sub(r'\D','',lebi1))-int(re.sub(r'\D','',lebi0))))
         f.write('\t签到乐币：'+str(lebi))
         f.write('\t连签天数：'+str(signinTimes))
         f.write('\t尝试次数：'+str(times))
