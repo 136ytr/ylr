@@ -5,11 +5,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-'''
 @app.route('/')
 def ran():
     return render_template("ran.html")
-'''
 
 @app.route('/E-brochure')
 def pdf():
@@ -86,11 +84,11 @@ def klz():
 
         if response:
             data0=response.json()
-            print (data0)
+            #print (data0)
             if data0['words_result_num']:
                 data=data0['words_result'][0]['words'].replace('s','5').replace('S','5').replace('A','4').replace('·','-')
                 data=re.sub(r'[^\d|+|-|*]','',data)
-                print (data)
+                #print (data)
                 data=re.findall(r'[0-9][+|-|*][0-9]',data)
                 if len(data)==0:
                     return 'error'
