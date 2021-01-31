@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello World!!'
+    return render_template("index.html")
 
 '''
 @app.route('/')
@@ -28,6 +28,10 @@ def klz():
     from PIL import Image
     from selenium import webdriver
     from selenium.common.exceptions import NoSuchElementException
+    
+    path1='100.png'
+    path2='100.png'
+    times=0
     
     def processing_vcode():
         img = Image.open(path1)
