@@ -33,7 +33,7 @@ def klz():
     
     def processing_vcode():
         img = Image.open(path1)
-        img.show()
+        #img.show()
         img=img.crop((638,460,752,504))
         img = img.convert("L")  
         pixdata = img.load()
