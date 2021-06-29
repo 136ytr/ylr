@@ -16,7 +16,7 @@ def pdf():
 @app.route('/stu1')
 def stu1():
     return render_template("stu1.html")
-
+"""
 @app.route('/klz')
 def klz():
     import re
@@ -176,6 +176,6 @@ def klz():
 
     browser.quit()
     return render_template("klz.html")
-
+"""
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
