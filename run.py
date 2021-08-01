@@ -1,4 +1,6 @@
 from flask import Flask,render_template
+from jinja2.exceptions import TemplateNotFound
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -16,6 +18,13 @@ def pdf():
 @app.route('/stu1')
 def stu1():
     return render_template("stu1.html")
+
+@app.route('/<name>')
+def show(name):
+    try:
+        return render_template(str(name)+".html")
+    except TemplateNotFound:
+        return render_template("404.html")
 
 '''
 @app.route('/klz')
