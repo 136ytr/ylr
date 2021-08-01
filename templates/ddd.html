@@ -15,9 +15,10 @@
   <body style="height: 100%; width: 100%; overflow: hidden; margin: 0px;"> 
     <div id="demo"></div>
 
-    var pdfh5 = new Pdfh5('#demo', {
-      pdfurl: {{url_for('static',filename="风心病（RHD）2.0.pdf")}}
-    });
-
+    <script type="text/javascript" >
+      var pdfh5 = new Pdfh5('#demo', {
+        pdfurl: {{url_for('static',filename="风心病（RHD）2.0.pdf")}}
+      });
+    </script>
   </body> 
 </html>
