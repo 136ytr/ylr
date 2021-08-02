@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+
+<html style="height: 100%; width: 100%;"> 
+  <head>
+    <title>Hypertrophic Heart | E-brochure Made By C2G8</title>
+    
+    <link rel="stylesheet" href={{url_for('static',filename="css/pdfh5.css")}} />
+    
+    <script src={{url_for('static',filename="js/pdf.js")}} type="text/javascript" charset="utf-8"></script>
+    <script src={{url_for('static',filename="js/pdf.worker.js")}} type="text/javascript" charset="utf-8"></script>
+    <script src={{url_for('static',filename="js/jquery-2.1.1.min.js")}} type="text/javascript" charset="utf-8"></script>
+    <script src={{url_for('static',filename="js/pdfh5.js")}} type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body style="height: 100%; width: 100%; overflow: hidden; margin: 0px;"> 
+    <div id="demo"></div>
+
+    <script type="text/javascript" >
+      var pdfh5 = new Pdfh5('#demo', {
+        pdfurl: "{{url_for('static',filename="Hypertrophic Heart.pdf")}}"
+      });
+    </script>
+  </body> 
+</html>
