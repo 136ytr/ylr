@@ -18,11 +18,10 @@
 		<!--<iframe src={{url_for('static',filename="风心病（RHD）2.0.pdf")}} width="100%" height="100%"></iframe>-->
 		
 		<object data={{url_for('static',filename="风心病（RHD）2.0.pdf")}} type="application/pdf" width="100%" height="100%">
+			<div id="demo"></div>
 			<p>This browser does not support PDFs. Please click to view: <a href={{url_for('static',filename="风心病（RHD）2.0.pdf")}}>Download PDF</a>.</p>
 		</object>
 		
-		<div id="demo"></div>
-
 		<script type="text/javascript" >
 		var pdfh5 = new Pdfh5('#demo', {
 		pdfurl: "{{url_for('static',filename="风心病（RHD）2.0.pdf")}}"
